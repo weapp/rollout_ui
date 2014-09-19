@@ -12,8 +12,8 @@
 </div>
 
 <% content_for :onready do %>
-  $("select").chosen({no_results_text: "No groups matched"});
-  $("input.users").chosen();
+  $("select").select2({ width: 'element' });
+  $("input.users").select2({ tags: [], width: 'element' });
 
   $("select, input.users").change(function() {
     $(this).closest("form").submit();
