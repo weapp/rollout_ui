@@ -1,0 +1,8 @@
+source 'http://rubygems.org'
+
+gem "rollout_ui", path: ".."
+gem "rack"
+gem "redis"
+gem "sinatra"
+
+gem "pry"
