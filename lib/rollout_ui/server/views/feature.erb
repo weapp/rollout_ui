@@ -5,7 +5,7 @@
     <label>Percentage</label>
     <select class="percentage" name="percentage">
       <% 101.times do |i| %>
-        <option value="<%= i %>"<%= " selected='selected'" if feature.percentage == i.to_s %>><%= i %>%</option>
+        <option value="<%= i %>"<%= " selected='selected'" if feature.percentage.to_f == i.to_f %>><%= i %>%</option>
       <% end %>
     </select>
     <input type="submit" value="Save" />
@@ -30,5 +30,11 @@
     <label>Add User ID</label>
     <input class="users" type="text" name="users[]" value="<%= feature.user_ids.join(",") %>" data-placeholder="Enter User ID" />
     <input type="submit" value="Save" />
+  </form>
+</div>
+
+<div class="col">
+  <form accept-charset="UTF-8" action="<%= url_path("#{feature.name}/update") %>" class="users_form" data-remote="true" method="post">
+    <input type="button" value="Delete" />
   </form>
 </div>

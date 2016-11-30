@@ -72,5 +72,15 @@ module RolloutUi
 
       redirect url_path
     end
+
+    # delete '/:feature' do
+    #   @feature = RolloutUi::Feature.new(params["feature"])
+
+    #   @feature.percentage = params["percentage"] if params["percentage"]
+    #   @feature.groups     = params["groups"]     if params["groups"]
+    #   @feature.user_ids   = params["users"]      if params["users"]
+
+    #   redirect url_path
+    # end
   end
 end

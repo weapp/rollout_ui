@@ -14,16 +14,20 @@ module RolloutUi
     end
 
     def add_feature(feature)
-      redis.sadd(:features, feature)
+      f = [*features, feature]
+      redis.set("feature:__features__", f.join(","))
+
     end
 
     def remove_feature(feature)
-      redis.srem(:features, feature)
+      f = features
+      f.delete(feature)
+      redis.set("feature:__features__", f.join(","))
     end
 
     def features
-      features = redis.smembers(:features)
-      features ? features.sort : []
+      features = redis.get("feature:__features__") || ""
+      features.split(",").sort
     end
 
     def redis
